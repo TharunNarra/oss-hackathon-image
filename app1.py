@@ -1,9 +1,8 @@
 import streamlit as st
+import warnings
 import google.generativeai as genai
 from PIL import Image
 from deep_translator import GoogleTranslator
-from gtts import gTTS
-import os
 
 # Constants for text styling
 BOLD_BEGIN = "\033[1m"
@@ -72,9 +71,6 @@ languages = {
 }
 selected_language = st.selectbox("Select output language", list(languages.keys()))
 
-# Add a checkbox for enabling text-to-speech
-enable_tts = st.checkbox("Enable Text-to-Speech")
-
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
@@ -94,15 +90,3 @@ if uploaded_file is not None:
 
     # Display the translated description
     st.write(f"Image description ({selected_language}): {translated_description}")
-
-    # Text-to-Speech
-    if enable_tts:
-        st.write("Generating audio...")
-        tts = gTTS(text=translated_description, lang=languages[selected_language])
-        tts.save("description.mp3")
-
-        # Play the audio
-        st.audio("description.mp3", format="audio/mp3")
-
-        # Clean up the audio file
-        os.remove("description.mp3")
