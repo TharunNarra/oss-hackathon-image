@@ -70,7 +70,36 @@ st.sidebar.title("📌 Navigation")
 st.sidebar.markdown("Upload an image to generate an AI-powered description.")
 
 # Language selection
-languages = {"English": "en", "Spanish": "es", "French": "fr"}
+languages = {
+    "English": "en",
+    "Spanish": "es",
+    "French": "fr",
+    "German": "de",
+    "Chinese (Simplified)": "zh-CN",
+    "Hindi": "hi",
+    "Arabic": "ar",
+    "Japanese": "ja",
+    "Russian": "ru",
+    "Portuguese": "pt",
+    "Italian": "it",
+    "Korean": "ko",
+    "Dutch": "nl",
+    "Turkish": "tr",
+    "Swedish": "sv",
+    "Polish": "pl",
+    "Indonesian": "id",
+    "Greek": "el",
+    "Hebrew": "he",
+    "Thai": "th",
+    "Vietnamese": "vi",
+    "Czech": "cs",
+    "Danish": "da",
+    "Finnish": "fi",
+    "Hungarian": "hu",
+    "Romanian": "ro",
+    "Ukrainian": "uk"
+}
+
 selected_language = st.sidebar.selectbox("🌎 Select output language", list(languages.keys()))
 
 # Enable text-to-speech
